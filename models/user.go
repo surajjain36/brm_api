@@ -32,7 +32,7 @@ type User struct {
 	DeviceID     string    `json:"-"`
 	AccessToken  string    `json:"-"`
 	Profile                //Profile related fields
-	Hierarchy    string    `json:"-"`
+	Hierarchy    string    `json:"-" gorm:"index;type:ltree"`
 	Role         string    `json:"role"`
 	//PinID        uint      `json:"pin_id" gorm:"default:null"`
 	//Pin          Pin       `json:"pin"`

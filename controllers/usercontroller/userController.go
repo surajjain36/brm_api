@@ -96,7 +96,14 @@ func Create(c *fiber.Ctx) (err error) {
 
 	user := c.Locals(models.UserKey).(*models.User)
 	db := postgres.Connection
-	reqPayload.Hierarchy = user.Hierarchy + "|" + strconv.FormatUint(uint64(user.ID), 10) + "|"
+
+	hierarchy := user.Hierarchy
+	if hierarchy == "" {
+		hierarchy = strconv.FormatUint(uint64(user.ID), 10)
+	} else {
+		hierarchy += "." + strconv.FormatUint(uint64(user.ID), 10)
+	}
+	reqPayload.Hierarchy = hierarchy
 	reqPayload.CreatedBy = user.ID
 	if reqPayload.RefererID == 0 {
 		reqPayload.PartnerID = user.ID
