@@ -82,8 +82,8 @@ type Address struct {
 
 // BankAccount model
 type BankAccount struct {
-	AccountNumber string `json:"account_number" validate:"required"`
-	IFSCCode      string `json:"ifsc_code" validate:"required"`
+	AccountNumber string `json:"account_number"`
+	IFSCCode      string `json:"ifsc_code"`
 	BankName      string `json:"bank_name"`
 	BranchName    string `json:"branch_name"`
 }
