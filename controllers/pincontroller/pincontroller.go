@@ -76,7 +76,7 @@ func Create(c *fiber.Ctx) error {
 
 				pinT := models.PinTransaction{
 					PinID:    pin.ID,
-					SharedTo: 0, //reqType.ShareTo,//todo: enable if want to generate to pins to specific user
+					SharedTo: reqType.ShareTo, //if reqType.ShareTo is not sent via frontend, the value will be assigned as 0.
 				}
 				if err := tx.Create(&pinT).Error; err != nil {
 					return err
