@@ -191,7 +191,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"size\": 2,\n    \"package_id\":1\n}",
+							"raw": "{\n    \"size\": 2,\n    \"package_id\":1,\n    \"share_to\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
